@@ -5,9 +5,12 @@
   "type": "module",
   "main": "lib/node-loader-core.js",
   "scripts": {
-    "test": "cross-env NODE_LOADER_CONFIG=./test/node-loader.config.js node --experimental-loader ./lib/node-loader-core.js ./test/run-tests.js",
+    "test": "node --experimental-loader ./lib/node-loader-core.js ./test/run-tests.js",
     "format": "prettier --write './**'",
-    "lint": "eslint lib"
+    "lint": "eslint lib test"
+  },
+  "engines": {
+    "node": ">=13"
   },
   "husky": {
     "hooks": {
@@ -26,9 +29,8 @@
   "homepage": "https://github.com/node-loader/node-loader-core#readme",
   "devDependencies": {
     "@types/mocha": "^8.0.0",
-    "cross-env": "^7.0.2",
     "eslint": "^7.5.0",
-    "eslint-config-node-important-stuff": "^1.0.0",
+    "eslint-config-node-important-stuff": "^1.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "mocha": "^8.0.1",
