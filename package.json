@@ -1,0 +1,41 @@
+{
+  "name": "@node-loader/core",
+  "version": "1.0.0",
+  "description": "The base loader for configuring NodeJS loaders",
+  "type": "module",
+  "main": "lib/node-loader-core.js",
+  "scripts": {
+    "test": "cross-env NODE_LOADER_CONFIG=./test/node-loader.config.js node --experimental-loader ./lib/node-loader-core.js ./test/run-tests.js",
+    "format": "prettier --write './**'",
+    "lint": "eslint lib"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && yarn lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-loader/node-loader-core.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/node-loader/node-loader-core/issues"
+  },
+  "homepage": "https://github.com/node-loader/node-loader-core#readme",
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.3.0",
+    "eslint-config-node-important-stuff": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "mocha": "^7.2.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.11.0"
+  }
+}

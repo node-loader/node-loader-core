@@ -1,0 +1,6 @@
+{
+  "extends": ["node-important-stuff", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  }
+}
