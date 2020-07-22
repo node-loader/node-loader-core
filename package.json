@@ -26,6 +26,9 @@
   "bugs": {
     "url": "https://github.com/node-loader/node-loader-core/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/node-loader/node-loader-core#readme",
   "devDependencies": {
     "@types/mocha": "^8.0.0",
