@@ -38,10 +38,10 @@ Your code will now run with all loaders specified in the configuration file, mer
 
 ## Configuration
 
-The path to your node-loader.config.js file may be configured with the NODE_LOADER_CONFIG environment variable:
+By default, node-loader core looks for a configuration file called `node-loader.config.js` in the current working directory. To specify the file path to the configuration file, provide the `NODE_LOADER_CONFIG` environment variable:
 
 ```sh
-IMPORT_MAP_PATH=/Users/name/some/dir/node.importmap node --experimental-loader @node-loader/core file.js
+NODE_LOADER_CONFIG=/Users/name/some/dir/node-loader.config.js --experimental-loader @node-loader/core file.js
 ```
 
 Within the file, only the `loaders` property is currently respected. In the future, additional configuration options may be defined.
