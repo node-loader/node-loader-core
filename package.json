@@ -6,7 +6,8 @@
   "main": "lib/node-loader-core.js",
   "scripts": {
     "test": "node --experimental-loader ./lib/node-loader-core.js ./test/run-tests.js",
-    "format": "prettier --write './**'",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
     "lint": "eslint lib test"
   },
   "engines": {
