@@ -1,4 +1,5 @@
 import assert from "assert";
+import path from "path";
 
 describe("resolve hook", () => {
   it(`works with a single resolve hook`, async () => {
@@ -33,7 +34,6 @@ describe("resolve hook", () => {
   });
 
   it(`works with multiple resolve hooks`, async () => {
-    console.log("multiple resolve!");
     global.nodeLoader.setConfigPromise(
       Promise.resolve({
         loaders: [
@@ -83,5 +83,28 @@ describe("resolve hook", () => {
 
     const captainFalcon = await import("captainfalcon");
     assert.equal(captainFalcon.default, "Captain Falcon 2");
+  });
+});
+
+describe("NODE_LOADER_CONFIG environment variable", () => {
+  afterEach(() => {
+    delete process.env.NODE_LOADER_CONFIG;
+  });
+
+  it("supports an absolute path to locate the config", () => {
+    const envValue = path.join(process.cwd(), "node-loader.config.js");
+    process.env.NODE_LOADER_CONFIG = envValue;
+    const configPath = global.nodeLoader.getConfigPath();
+    assert.strictEqual(envValue, configPath.pathname);
+  });
+
+  it("resolves a relative path from process.cwd() to locate the config", () => {
+    const envValue = "./sub/directory/node-loader.config.js";
+    process.env.NODE_LOADER_CONFIG = envValue;
+    const configPath = global.nodeLoader.getConfigPath();
+    assert.strictEqual(
+      path.resolve(process.cwd(), envValue),
+      configPath.pathname
+    );
   });
 });
