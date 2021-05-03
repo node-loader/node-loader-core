@@ -1,6 +1,6 @@
 {
   "name": "@node-loader/core",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "The base loader for configuring NodeJS loaders",
   "type": "module",
   "main": "lib/node-loader-core.js",
