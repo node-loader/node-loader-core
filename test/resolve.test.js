@@ -33,7 +33,6 @@ describe("resolve hook", () => {
   });
 
   it(`works with multiple resolve hooks`, async () => {
-    console.log("multiple resolve!");
     global.nodeLoader.setConfigPromise(
       Promise.resolve({
         loaders: [
