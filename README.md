@@ -10,10 +10,9 @@ A configurable NodeJS loader that combines multiple other loaders into one.
 
 ```sh
 npm install --save @node-loader/core
-
-# Or, if you prefer yarn
-yarn add @node-loader/core
 ```
+
+For NodeJS@<16.12, use `@node-loader/core@1`. For NodeJS@>=16.12, use `@node-loader/core@latest`.
 
 ## Usage
 
