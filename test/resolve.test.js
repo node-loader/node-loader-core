@@ -83,4 +83,49 @@ describe("resolve hook", () => {
     const captainFalcon = await import("captainfalcon");
     assert.equal(captainFalcon.default, "Captain Falcon 2");
   });
+
+  it(`supports passing down options to resolve hook`, async () => {
+    global.nodeLoader.setConfigPromise(
+      Promise.resolve({
+        loaders: [
+          {
+            options: {
+              nocache: true,
+            },
+            loader: {
+              resolve: async function (
+                specifier,
+                context,
+                defaultResolve,
+                loaderOptions
+              ) {
+                const { parentURL = null } = context;
+
+                if (specifier === "yoshi-2") {
+                  const url = new URL("./fixtures/yoshi-2.js", parentURL).href;
+
+                  return {
+                    url: loaderOptions?.nocache
+                      ? url + `?${Math.random()}`
+                      : url,
+                  };
+                } else {
+                  return defaultResolve(specifier, context);
+                }
+              },
+            },
+          },
+        ],
+      })
+    );
+
+    const ns = await import("yoshi-2");
+    assert.equal(
+      ns.default,
+      "Yoshi doesn't deserve to be subservient to Mario"
+    );
+
+    const ns2 = await import("yoshi-2");
+    assert.notEqual(ns2, ns);
+  });
 });
