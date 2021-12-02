@@ -27,6 +27,14 @@ export default {
 };
 ```
 
+If the loader supports options, you pass them down like below.
+
+```js
+export default {
+  loaders: [{ options: { someOption: true }, loader: importMapLoader }],
+};
+```
+
 Then run node with the `--experimental-loader` flag:
 
 ```sh
