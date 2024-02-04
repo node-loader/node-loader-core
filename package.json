@@ -5,7 +5,7 @@
   "type": "module",
   "main": "lib/node-loader-core.js",
   "scripts": {
-    "test": "node --experimental-loader ./lib/node-loader-core.js ./test/run-tests.js",
+    "test": "node --import=\"data:text/javascript,import {register} from 'node:module'; import {pathToFileURL} from 'node:url'; register('./lib/node-loader-core.js', pathToFileURL('./'))\" ./test/run-tests.js",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "lint": "eslint lib test"
