@@ -1,6 +1,10 @@
 # @node-loader/core
 
-A configurable NodeJS loader that combines multiple other loaders into one.
+A configurable NodeJS loader that combines multiple other loaders into one. Only works with 
+
+## Deprecation Notice
+
+As of NodeJS 20, combining multiple loaders into one loader is possible via [chaining with the `--import` flag](https://nodejs.org/docs/latest-v20.x/api/module.html#chaining). It is recommended to switch to native NodeJS chaining.
 
 ## Motivation
 
@@ -12,7 +16,7 @@ A configurable NodeJS loader that combines multiple other loaders into one.
 npm install --save @node-loader/core
 ```
 
-For NodeJS@<16.12, use `@node-loader/core@1`. For NodeJS@>=16.12, use `@node-loader/core@latest`.
+For NodeJS@<16.12, use `@node-loader/core@1`. For NodeJS@>=16.12 but <20, use `@node-loader/core@latest`. For Node >=20, use [`--import` chaining](https://nodejs.org/docs/latest-v20.x/api/module.html#chaining)
 
 ## Usage
 
