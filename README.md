@@ -2,6 +2,10 @@
 
 A configurable NodeJS loader that combines multiple other loaders into one.
 
+## Deprecation Notice
+
+As of NodeJS 20, combining multiple loaders into one loader is possible via [chaining with the `--import` flag](https://nodejs.org/docs/latest-v20.x/api/module.html#chaining). It is recommended to switch to native NodeJS chaining.
+
 ## Motivation
 
 [NodeJS Loaders](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_experimental_loaders) are a new feature that allow you to configure the behavior of modules loaded with `import` or `import()`. NodeJS currently only allows you to specify a single loader when starting up Node. However, the `@node-loader/core` project allows you to combine multiple into a single loader through a configuration file.
@@ -12,7 +16,7 @@ A configurable NodeJS loader that combines multiple other loaders into one.
 npm install --save @node-loader/core
 ```
 
-For NodeJS@<16.12, use `@node-loader/core@1`. For NodeJS@>=16.12, use `@node-loader/core@latest`.
+For NodeJS@<16.12, use `@node-loader/core@1`. For NodeJS@>=16.12 but <20, use `@node-loader/core@latest`. For Node >=20, use [`--import` chaining](https://nodejs.org/docs/latest-v20.x/api/module.html#chaining)
 
 ## Usage
 
