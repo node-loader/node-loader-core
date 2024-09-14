@@ -1,6 +1,6 @@
 # @node-loader/core
 
-A configurable NodeJS loader that combines multiple other loaders into one. Only works with 
+A configurable NodeJS loader that combines multiple other loaders into one.
 
 ## Deprecation Notice
 
